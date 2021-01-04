@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/png" href="images/favicon.png" />
+        <title>WCS : accueil</title>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <nav>
+      <a href="#"><img src="images/logo.png" alt="logo"/></a>
+      <ul>
+    <li class="deroulant"><a href="#">Structure</a>
+      <ul class="sous">
+        <li><a href="#">Compétences</a></li>
+        <li><a href="#">Projets réalisés</a></li>
+      </ul>
+    </li>
+    <li class="deroulant"><a href="#">Équipe</a>
+      <ul class="sous">
+        <li><a href="#">Terrain</a></li>
+        <li><a href="#">R&D</a></li>
+        <li><a href="#">Recrutement</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">À propos</a></li>
+  </ul>
+    </nav>
+    <div id="chatbox">
+      <div id= "botname">
+        <img src="../pool/images/face.jpg" class="fb-style"/><span class="fb-online"/></span> Botty
+      </div>
+      <div id="chat">
+        <table>
+          <tr><td><img src="../pool/images/face.jpg" class="fb-style"/></td><td class="msg-chat">Bienvenue chez WCS 😊<br/>Nous essayons d'être aussi réactif que possible, notamment grâce à ce chat. Avez-vous des questions ?</td></tr>
+          <tr><td></td><td class="msg-chat">De quel ordre sont-elles ?</td></tr>
+          <tr><td></td><td><button onclick="chatAnswer('évenements')">évenements</button> <button onclick="chatAnswer('colocs')">colocs</button></td></tr>
+        </table>
+      </div>
+      <div id="chatsend">
+        <input id="inputchatsend" type="text" placeholder="Choisir une option..."/><button onclick="chatSend()">></button>
+      </div>
+    </div>
+    <div id="openchatbox">
+      <button onclick="openChatBox(this)">une question ?</button>
+    </div>
+    <body>
+      <h1>WCS : W... C... S...</h1>
+      <h2>Phrase accrocheuse</h2>
+      <p>Une phrase et un <button>bouton</button> en son centre. Une autre et son <a href="">lien</a> vers une potentielle autre page.<br/>
+      Si vous avez du mal à comprendre, survolez les <span class="info" title="Tout à fait comme ceci !">i</span> présents sur la page.</p>
+      <h2>Nos propositions</h2>
+      <div class="caroussel">
+        <div class="cbox" onmouseenter="cboxUp(this)" onmouseleave="cboxDown(this)" onclick="window.open('#')">
+          <div class=recto>
+            <h3>Rassemblez vos équipes</h3>
+            <img src="../pool/logo/0.png"/><br/>
+            3 janvier
+          </div>
+          <div class=verso>
+            <h3>Rassemblez vos équipes</h3>
+            <img src="../pool/logo/0.png"/><br/>
+            <button>Savoir +</button>
+          </div>
+        </div>
+        <div class="cbox" onmouseenter="cboxUp(this)" onmouseleave="cboxDown(this)" onclick="window.open('#')">
+          <div class=recto>
+            <h3>Des étoiles plein les yeux</h3>
+            <img src="../pool/logo/1.png"/><br/>
+            7 février
+          </div>
+          <div class=verso>
+            <h3>Des étoiles plein les yeux</h3>
+            <img src="../pool/logo/1.png"/><br/>
+            <button>Savoir +</button>
+          </div>
+        </div>
+      </div>
+      <h2>Pourquoi pas vous ?</h2>
+      <p>Rejoignez...</p>
+      <h2>Ils nous soutiennent déjà :</h2>
+      <div style="display:inline-block;position:relative">
+        <button class="btn-slider" onclick="slideIt(-1)"><</button>
+        <ul id="slider">
+          <li><img src="../pool/images/slider-0.jpg" alt="img slider-0"/></li>
+          <li><img src="../pool/images/slider-1.jpg" alt="img slider-1"/></li>
+          <li><img src="../pool/images/slider-2.jpg" alt="img slider-2"/></li>
+        </ul>
+        <button class="btn-slider" onclick="slideIt(1)">></button>
+      </div>
+      <script type="text/javascript">
+        let currentSlide = 0;
+        let totalSlide = document.getElementById("slider").childElementCount;
+        //btn-slider
+        let btnTopPos = (document.getElementById("slider").scrollHeight-document.getElementsByClassName("btn-slider")[0].scrollHeight)/2;
+        let btnSidePos = document.getElementsByClassName("btn-slider")[0].scrollWidth/2;
+        document.getElementsByClassName("btn-slider")[0].style.top = (btnTopPos-4)+'px';
+        document.getElementsByClassName("btn-slider")[0].style.left = -btnSidePos+'px';
+        document.getElementsByClassName("btn-slider")[1].style.top = (btnTopPos-4)+'px';
+        document.getElementsByClassName("btn-slider")[1].style.right = -btnSidePos+'px';
+
+        function slideIt(way){
+          currentSlide += way;
+          if(currentSlide < 0){
+            currentSlide = totalSlide-1;
+          } else if(currentSlide >= totalSlide){
+            currentSlide = 0;
+          }
+          for(let i = 0; i < totalSlide; i++){
+            document.getElementById("slider").children[i].style.display = 'none';
+          }
+          document.getElementById("slider").children[currentSlide].style.display = 'block';
+        }
+        slideIt(0);
+
+        function slideLoop(){
+          setTimeout(function(){
+              slideIt(1);
+              slideLoop();
+          }, 2000);
+
+        }
+        slideLoop();
+      </script>
+      <h2>Nos projets :</h2>
+      <div style="display:inline-block;position:relative">
+        <button class="btn-slider" onclick="sliiderIt(-1)"><</button>
+        <div id="sliider">
+          <img src="../pool/images/slider-0.jpg"/><img src="../pool/images/slider-1.jpg"/><img src="../pool/images/slider-2.jpg"/>
+        </div>
+        <button class="btn-slider" onclick="sliiderIt(1)">></button>
+    </div>
+      <script type="text/javascript">
+        let currentSliide = 0;
+        let totalSliide = document.getElementById("sliider").childElementCount;
+        //btn-slider
+        document.getElementsByClassName("btn-slider")[2].style.top = (btnTopPos-4)+'px';
+        document.getElementsByClassName("btn-slider")[2].style.left = -btnSidePos+'px';
+        document.getElementsByClassName("btn-slider")[3].style.top = (btnTopPos-4)+'px';
+        document.getElementsByClassName("btn-slider")[3].style.right = -btnSidePos+'px';
+
+        function sliiderIt(way){
+          currentSliide += way;
+          if(currentSliide < 0){
+            currentSliide = totalSliide-1;
+          } else if(currentSliide >= totalSliide){
+            currentSliide = 0;
+          }
+          document.getElementById("sliider").scrollLeft = currentSliide*320;
+        }
+      </script>
+      <h2>Inscrivez-vous à la newsletter pour ne rien rater !</h2>
+      <form action="post/newsletter.php" method="post">
+        <input type="text" placeholder="adresse mail" id="newsletter-mail"/><button type="submit">Envoyer</button>
+      </form>
+      <br/>
+    </body>
+    <footer>
+      <div>
+        <img src="images/logo.png" alt="logo"/><br/>
+        Nos réseaux :<br/>
+        <a href=""><img src="../pool/logo/facebook.png" alt="facebook"/></a> <a href=""><img src="../pool/logo/twitter.png" alt="twitter"/></a> <a href=""><img src="../pool/logo/linkedin.png" alt="linkedin"/></a>
+      </div>
+      <div>
+        Nos bureaux vous accueillent :<br/>
+        <table>
+          <tr><td>Ici</td><td>lun.</td><td>9h-13h</td></tr>
+          <tr><td></td><td>mar. au ven.</td><td>9h-13h & 14h-17h</td></tr>
+          <tr><td>Là</td><td>mar. au jeu.</td><td>9h-10h & 17h-19h</td></tr>
+        </table>
+      </div>
+      <div>
+        Liens utiles :
+      </div>
+      <div style="width:100%">
+        <a href="">Conditions Générales d’Utilisation</a> | <a href="">Charte Données personnelles</a><br/>
+          Adresse © 2000-2021 WCS. Tous droits réservés.
+      </div>
+    </footer>
+</html>

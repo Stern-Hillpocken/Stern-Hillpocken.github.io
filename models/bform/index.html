@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <title>BForm</title>
+    </head>
+    <body>
+      <div id="card">
+        <div id="title">BForm</div>
+        <div id="track"><div>Généralités</div><div>Animaux</div></div>
+        <form>
+        </form>
+        <button class="btn btn-danger disabled" id="btn-send" type="button">Corriger</button>
+      </div>
+    </body>
+</html>
+<script type="text/javascript">
+let inputs = [
+  [
+    'name',
+    'Nom',
+    'maxlength="12" type="text"',
+    '<svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" /></svg>'
+  ],
+  [
+    'password',
+    'Mot de passe',
+    'maxlength="12" type="password"',
+    '<svg viewBox="0 0 24 24"><path d="M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M18,20V10H6V20H18M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10C4,8.89 4.89,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" /></svg>'
+  ],
+  [
+    'date',
+    'Jour de naissance',
+    'type="date"',
+    '<svg viewBox="0 0 24 24"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" /></svg>'
+  ],
+  [
+    'tel',
+    'Téléphone',
+    'maxlength="10" placeholder="0556xxxxxx" type="tel"',
+    '<svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>'
+  ],
+  [
+    'picture',
+    'Photo de profil',
+    'type="file"'
+  ],
+  [
+    'email',
+    'Email',
+    'type="email"',
+    '<svg viewBox="0 0 24 24"><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" /></svg>'
+  ],
+  [
+    'other',
+    'Raison',
+    'type="text"'
+  ],
+  [
+    'consent',
+    'Je confirme l’exactitude des données fournies',
+    'type="checkbox"'
+  ],
+  [
+    'animal',
+    'Animal préféré',
+    'maxlength="25" type="text"'
+  ],[
+    'consent-again',
+    'Je confirme l’animal',
+    'type="checkbox"'
+  ]
+];
+
+var tabNum = 0;
+var tabsLength = [8,2];
+
+let display = '';
+for(let i = 0; i < inputs.length; i++){
+  display += '<div class="form-group has-feedback"';
+  if(i >= tabsLength[0]){
+    display += ' style="display:none;"';
+  }
+  display += '><label class="control-label" for="'+inputs[i][0]+'">'+inputs[i][1]+'</label>';
+  if(inputs[i].length === 4){
+    display += '<div class="input-group"><span class="input-group-addon">'+inputs[i][3]+'</span>';
+  }
+  display += '<input class="form-control" id="'+inputs[i][0]+'" name="'+inputs[i][0]+'" '+inputs[i][2]+' onclick="checkInput('+i+')"';
+  if(inputs[i][2].includes('type="file"')){
+    display += ' style="background-color:inherit; border:inherit; box-shadow:inherit;"';
+  }
+  display += '>';
+  if(inputs[i].length === 4){
+    display += '</div>';
+  }
+  display += '<span class="glyphicon form-control-feedback"></span></div>';
+}
+document.getElementsByTagName('form')[0].innerHTML = display;
+
+function checkInput(nb){
+  let btnDisplay = 'ok';
+  let lastTabLength = 0;
+  for(let i = 0; i <= tabNum; i++){
+    lastTabLength += tabsLength[i];
+  }
+  for(let i = 0; i < lastTabLength; i++){
+    let checkClass = 'has-error';//has-success / has-error
+    let glyphType = 'glyphicon-remove';//glyphicon-ok / glyphicon-remove
+    let inValue = document.getElementsByTagName('form')[0].children[i].children[1].value;
+    if(inputs[i].length === 4){
+      inValue = document.getElementsByTagName('form')[0].children[i].children[1].children[1].value;
+    }
+    if(inValue !== '' && ( (inputs[i][2].includes('type="text"') && inValue.length > 2) || (inputs[i][2].includes('type="password"') && inValue.length > 5) || (inputs[i][2].includes('type="date"') && inValue.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/g) !== null ) || (inputs[i][2].includes('type="tel"') && inValue.startsWith('0') && inValue.length === 10) || (inputs[i][2].includes('type="file"') && inValue.length > 5) || (inputs[i][2].includes('type="email"') && inValue.match(/@\w+\.(fr|com)$/g) !== null) || (inputs[i][2].includes('type="checkbox"') && document.getElementsByTagName('form')[0].children[i].children[1].checked === true) )){
+      checkClass = 'has-success';
+      glyphType = 'glyphicon-ok';
+    } else {
+      btnDisplay = 'danger';
+    }
+    if(i < nb){
+      document.getElementsByTagName('form')[0].children[i].className = 'form-group has-feedback '+checkClass;
+      document.getElementsByTagName('form')[0].children[i].children[2].className = 'glyphicon form-control-feedback '+glyphType;
+    }
+  }
+
+  if(btnDisplay === 'ok'){
+    document.getElementById('btn-send').className = 'btn btn-primary';
+    if(tabNum !== tabsLength.length-1){
+      document.getElementById('btn-send').innerText = 'Suivant';
+    } else {
+      document.getElementById('btn-send').innerText = 'Envoyer';
+    }
+    document.getElementById('btn-send').onclick = function(){changePage(1);};
+    //document.getElementById('btn-send').disabled = 'false';
+  } else {
+    document.getElementById('btn-send').className = 'btn btn-danger disabled';
+    document.getElementById('btn-send').innerText = 'Corriger';
+    document.getElementById('btn-send').onclick = '';
+    //document.getElementById('btn-send').disabled = 'true';
+  }
+}
+
+function changePage(num){
+  tabNum = num;
+  checkInput(0);
+  //display
+  let tabsPrevLength = 0;
+  for(let i = 0; i < tabNum; i++){
+    tabsPrevLength += tabsLength[i];
+  }
+  //
+  for(let i = 0; i < inputs.length; i++){
+    document.getElementsByTagName('form')[0].children[i].style = 'display:none';
+    if(i >= tabsPrevLength && i < tabsPrevLength+tabsLength[tabNum]){
+      document.getElementsByTagName('form')[0].children[i].style = 'display:block';
+    }
+  }
+  for(let i = 0; i < tabsLength.length; i++){
+    if(i < tabNum){
+      document.getElementById('track').children[i].style.backgroundColor = '#f07508';
+    } else if (i === tabNum){
+      document.getElementById('track').children[i].style.backgroundColor = '#fbc531';
+    } else {
+      document.getElementById('track').children[i].style.backgroundColor = 'lightgray';
+    }
+  }
+}
+changePage(0);
+</script>

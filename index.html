@@ -1,1 +1,321 @@
-Helloo World
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+        <title>Développeur web full-stack junior - Nicolas GUÉRIN</title>
+    </head>
+    <body>
+      <div id="content">
+
+        <div style="position:relative;background-color:#d1d1d1"><img id="img-hang" alt="img-hang" src="assets/img/hang.jpeg"/><div id="hang">Nicolas<br/>GUÉRIN</div></div>
+
+        <h2 id="about-me">À propos</h2>
+
+        <div id="about-me-desc">Todo</div>
+
+        <h2 id="skill">Compétences et outils</h2>
+
+          <script type="text/javascript">
+            let skillData = [
+              ['Front-end',
+                ['HTML5','html5',4],
+                ['CSS3','css3',4],
+                ['Bootstrap','bootstrap',2]
+              ],
+              ['Javascript',
+                ['Javascript','javascript',4],
+                ['React','react',2],
+                ['jQuery','jquery',2]
+              ],
+              ['Back-end',
+                ['PHP','php',3],
+                ['MySQL','mysql',2]
+              ],
+              ['Outils',
+                ['Github','github',4],
+                ['Atom','atom',4],
+                ['GIMP','gimp',3]
+              ],
+            ];
+            let skillCards = [];
+            for(let i = 0; i < skillData.length; i++){
+              skillCards.push(document.createElement('div'))
+              skillCards[i].className = 'skill-box';
+              let display = '<h3>'+skillData[i][0]+'</h3><hr/>';
+              for(let j = 1; j < skillData[i].length; j++){
+                display += '<div class="skill-card"><div><img src="assets/img/logo/'+skillData[i][j][1]+'.png" alt="'+skillData[i][j][1]+'-img"/> '+skillData[i][j][0]+'</div><div>';
+                for(let k = 0; k < skillData[i][j][2]; k++){
+                  display += '<svg viewBox="0 0 24 24"><path fill="#fbc531" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>';
+                }
+                for(let k = 0; k < 5-skillData[i][j][2]; k++){
+                  display += '<svg viewBox="0 0 24 24"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z" /></svg>';
+                }
+                display += '</div></div>';
+                skillCards[i].innerHTML = display;
+              }
+            }
+            let skill = document.getElementById('skill');
+            for(let i = skillCards.length-1; i >= 0; i--){
+              skill.parentNode.insertBefore(skillCards[i], skill.nextSibling);
+            }
+          </script>
+
+        <h2 id="project">Projets</h2>
+
+        <script type="text/javascript">
+        let projectData = [
+          [
+            'Pixelit',
+            'Jeu en ligne où il faut deviner le pixel art (dessin grâce à des pixels) des autres et faire deviner le sien pour marquer le plus de points.<br/>Utilisation d’un serveur pour stocker les informations, système de lobby, mise en place d’un chat, possibilité d’ajuster les paramètres de jeu, gameplay en pseudo temps réel.',
+            ['img1.png'],
+            ['php','mysql','jquery','javascript','html5','css3'],
+            [['Site web','http://pixelit.toile-libre.org/']]
+          ],[
+            'Fotos',
+            'Site interface permettant de gérer les dossiers photos du serveur en question. La contrainte du projet étant de ne pas utiliser de base de données donc pas de SQL.<br/>Création et suppression de dossiers et d’images, modification possible du titre du dossier, de la définition de son contenu, de la définition des images, de la chronologie des images (grâce au titre).',
+            ['fotos-0.png','fotos-1.png','fotos-2.png','fotos-3.png','fotos-4.png'],
+            ['php','javascript','html5','css3'],
+            [['Code source','https://github.com/Stern-Hillpocken/fotos']]
+          ],[
+            'Nascere',
+            'Jeu de pose de tuiles et accomplissement d’objectifs. À chaque tour il faut placer la tuile qui est proposée sur le plateau central, le but étant de remplir au mieux les objectifs demandés.<br/>Un tutoriel est disponible en cliquant sur le (?) en bas à gauche de l’écran.<br/>Utilisation des hook d’effet, context, state et reducer.',
+            ['nascere-0.png','nascere-1.png','nascere-2.png'],
+            ['react','javascript','html5','css3'],
+            [['Site web','https://oxhlo.csb.app/'],['Code source','https://codesandbox.io/s/oxhlo']]
+          ],[
+            'Tashi',
+            'Jeu de gestion de ressources et évènements narratifs. Lors de chaque journée, vous pourrez assigner vos ouvriers à différentes tâches : récolter des ressources ou construire des bâtiments. Gérez ces ressources et celles du lieu pour augmenter vos possibilités et la valeur de votre marchandise, mais attention : votre temps est compté.<br/>Projet sur une page géré presque entièrement en javascript. Utilisation des objets, tableaux, conditions, boucles, variables, etc...',
+            ['tashi-0.png','tashi-1.png','tashi-2.png','tashi-3.png'],
+            ['javascript','html5','css3'],
+            [['Site web','https://trapez.itch.io/tashi'],['Code source','https://codesandbox.io/s/qtboo']]
+          ],[
+            'Boardgame grep list',
+            'Fichier qui va chercher des informations sur un site de vente de jeux pour les afficher sur la page, en fonction des jeux rentrés dans le fichier. Permet de générer automatiquement un affichage agréable et détaillé à partir d’un tableau de données.<br/>Récupération de données externes liées au site de vente, traitement de ces données avec php via des conditions, des tableaux, etc...',
+            ['bggl-0.png','bggl-1.png'],
+            ['php','html5','css3'],
+            [['Télécharger le fichier','download/bggl.php" download"']]
+          ],[
+            'Modèles de site',
+            'Des modèles de sites pour avoir des idées.<br/>Un carousel et son pseudo bot qui guide l’utilisateur par des questions ciblées, un formulaire utilisant la puissance de bootstrap.',
+            ['wcs.png','bform.png'],
+            ['javascript','bootstrap','html5','css3'],
+            [['Modèle WCS','models/wcs/index.html'],['BForm','models/bform/index.html']]
+          ]
+        ];
+        let projectFrames = [];
+        let slidesPositions = [];
+        for(let i = 0; i < projectData.length; i++){
+          slidesPositions.push(0);
+          projectFrames.push(document.createElement('div'))
+          projectFrames[i].style.paddingBottom = '8vh';
+          projectFrames[i].style.paddingTop = '5vh';
+          if(i%2 === 1){projectFrames[i].style.backgroundColor = 'rgba(0,0,0,0.1)';}
+          let display = '<div class="project-frame"><h3>'+projectData[i][0]+'</h3><p>'+projectData[i][1]+'</p><div class="slider">';
+          display += '<button class="btn-slider" onclick="slideIt(-1,'+i+')"><</button><ul>';
+          for(let j = 0; j < projectData[i][2].length; j++){//img
+            display += '<li><img src="assets/img/project/'+projectData[i][2][j]+'" alt="'+projectData[i][2][j]+'"/></li>';
+          }
+          display += '</ul><button class="btn-slider" onclick="slideIt(1,'+i+')">></button>';
+          display += '</div><div style="padding:16px">';
+          for(let j = 0; j < projectData[i][3].length; j++){//tech
+            display += '<img src="assets/img/logo/'+projectData[i][3][j]+'.png" alt="'+projectData[i][3][j]+'-img"/>';
+          }
+          display += '</div><div>';
+          for(let j = 0; j < projectData[i][4].length; j++){
+            display += '<a type="button" class="';
+            if(j === 0 && projectData[i][4].length > 1){display += 'a-left';}
+            else if(j === projectData[i][4].length-1 && projectData[i][4].length > 1){display += 'a-right';}
+            else if(projectData[i][4].length > 2){display += 'a-middle';}
+            display += '" href="'+projectData[i][4][j][1]+'">'+projectData[i][4][j][0]+'</a>';
+          }
+          display += '</div></div>';
+          projectFrames[i].innerHTML = display;
+        }
+        let project = document.getElementById('project');
+        for(let i = projectFrames.length-1; i >= 0; i--){
+          project.parentNode.insertBefore(projectFrames[i], project.nextSibling);
+        }
+        for(let i = 0; i < projectData.length; i++){
+          slideIt(0,i);
+          //btn position
+          //let btnTopPos = (document.getElementsByClassName('slider')[i].scrollHeight-document.getElementsByClassName('btn-slider')[0].scrollHeight)/2;
+          let btnSidePos = document.getElementsByClassName('btn-slider')[0].scrollWidth/2;
+          document.getElementsByClassName('btn-slider')[i*2].style.top = '45%';
+          document.getElementsByClassName('btn-slider')[i*2].style.left = -btnSidePos+'px';
+          document.getElementsByClassName('btn-slider')[i*2+1].style.top = '45%';
+          document.getElementsByClassName('btn-slider')[i*2+1].style.right = -btnSidePos+'px';
+        }
+
+        function slideIt(way,frame){
+          let max = projectData[frame][2].length;
+          slidesPositions[frame] += way;
+          if(slidesPositions[frame] < 0){
+            slidesPositions[frame] = max-1;
+          } else if(slidesPositions[frame] >= max){
+            slidesPositions[frame] = 0;
+          }
+          for(let i = 0; i < max; i++){
+            document.getElementsByClassName('slider')[frame].children[1].children[i].style.display = 'none';
+          }
+          document.getElementsByClassName('slider')[frame].children[1].children[slidesPositions[frame]].style.display = 'block';
+        }
+        </script>
+
+        <h2 id="experience">Expériences professionnelles</h2>
+        <table id="xp-pro">
+        </table>
+
+        <script type="text/javascript">
+          let xpProData = [
+            [
+              '2020',
+              'Site diplômant',
+              'openclassrooms.com',
+              'Le site est leader européen de la formation en ligne avec plus de 3 millions d’utilisateurs par mois. Il permet de suivre de nombreux cours avec aussi bien de la théorie que de la pratique. Certains cours sont diplômant et reconnu par l’État.'
+            ],
+            [
+              '2019 >> maintenant',
+              'Animateur jeux de société',
+              'Jeux Barjo',
+              'Écoute client, réponse adaptée, curiosité et rigueur pour apprendre les règles.'
+            ],
+            [
+              '2018 - 6 mois',
+              'Cadre chargé d’études botaniques',
+              'Association naturaliste CDPNE',
+              '<strong>Mission :</strong> TVB de l’agglomération blésoise, prise en charge de projets.<br/><strong>Process :</strong> 2 mois de terrains en autonomie, mise en place de cartes et rapports, analyse de similarité de relevés avec R.<br/><strong>Résultat :</strong> Maintient de l’écologie, de l’état ou de l’évolution des zones d’études.'
+            ],
+            [
+              '2017 - 4 mois',
+              'Technicien chargé d’études botaniques',
+              'Bureau d’étude Sciences Environnement',
+              '<strong>Mission :</strong> Pour des PLU, identification de la végétation et des habitats naturels.<br/><strong>Process :</strong> Autonomie de terrain et bureau, rédaction des rapports pour les communes sur différents volets destinés à la compréhension des élus.<br/><strong>Résultat :</strong> Dossier remis à la DREAL pour examination et passage en phase 2.'
+            ],
+            [
+              '2016',
+              'Master : Biodiversité et écosystèmes continentaux',
+              'Bordeaux',
+              'Analyse et modélisation des données environnementales, Outils statistiques, Fonctionnement de la plante à l’écosystème.'
+            ],
+            [
+              '2016 - 6 mois',
+              'Chargé d’étude et recherche',
+              'INRA AgroParisTech',
+              '<strong>Mission :</strong> Dans le cadre du plan Écophyto, élaboration d’un système informatique pour assembler et analyser trois bases de données spatialisées, effectuées à l’échelle nationale, données pluriannuelles.<br/><strong>Process :</strong> Extraction et nettoyage des données RPG, BDTOPO et Vigicultures sous R, analyse et interprétation, bibliographie en anglais, travaux en collaboration avec Arvalis et Terres Inovia, utilisation de Git, système d’exploitation Ubuntu.<br/><strong>Résultat :</strong> Découverte de liens entre biodiversité et abondance d’espèces, les chercheurs de l’INRA continuent d’utiliser mon outil.'
+            ],
+            [
+              '2015 - 2 mois',
+              'Chargé d’études',
+              'Projet européen GLORIA',
+              '<strong>Mission :</strong> Dans le cadre du projet européen GLORIA visant à étudier l’évolution de la végétation alpine, mise en place de relevés et d’études statistiques.<br/><strong>Process :</strong> Identification d’espèces végétales, saisie et analyse de données sous R, aide à la rédaction d’un rapport pour le conseil scientifique, bibliographie en anglais, échange avec un laboratoire externe.<br/><strong>Résultat :</strong> Mise en évidence de l’évolution et prise en compte par le conseil scientifique.'
+            ]
+          ];
+
+          let display = '';
+          for(let i = 0; i < xpProData.length; i++){
+            let date = '<div class="date">'+xpProData[i][0]+'</div>';
+            let node = '<div class="node-line"></div><div class="node"><svg viewBox="0 0 24 24"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z" /></svg></div>';
+            let activity = '<span style="font-size:1.5em;font-weight:bold;">'+xpProData[i][1]+'</span><br/><span style="color:gray">'+xpProData[i][2]+'</span><br/>'+xpProData[i][3];
+
+
+            if(i%2 === 0){
+              display += '<tr><td></td><td>'+node+'</td><td class="xp-activity xp-activity-right">'+date+activity+'</td></tr>';
+            } else{
+              display += '<tr><td class="xp-activity xp-activity-left">'+date+activity+'</td><td>'+node+'</td><td></td></tr>';
+            }
+          }
+
+          document.getElementById('xp-pro').innerHTML = display;
+        </script>
+
+        <h2 id="contact">Contact</h2>
+
+        <div id="contact-link">
+          <div><a href="mailto:nicolas.guerin.pro@laposte.net"><svg viewBox="0 0 24 24">
+    <path d="M21,12.13C20.85,12.14 20.71,12.19 20.61,12.3L19.61,13.3L21.66,15.3L22.66,14.3C22.88,14.09 22.88,13.74 22.66,13.53L21.42,12.3C21.32,12.19 21.18,12.14 21.04,12.13M19.04,13.88L13,19.94V22H15.06L21.12,15.93M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H11V19.11L19.24,10.89C19.71,10.4 20.36,10.13 21.04,10.13C21.38,10.13 21.72,10.19 22.04,10.32V6C22.04,4.88 21.12,4 20,4M20,8L12,13L4,8V6L12,11L20,6" />
+</svg> nicolas.guerin.pro@laposte.net</a></div>
+          <br/>
+          <div><svg viewBox="0 0 24 24">
+    <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" />
+</svg> 07.50.52.26.69</div>
+        </div>
+
+      </div><div id="menu">
+        <div>
+          <div>
+            <span>Nicolas
+            GUÉRIN</span><br/>
+            Développeur web full-stack junior
+          </div>
+          <ul>
+            <li><a href="#about-me"><svg viewBox="0 0 24 24">
+              <path fill="#f07508" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></svg>.me()</a></li>
+            <li><a href="#skill"><svg viewBox="0 0 24 24">
+              <path fill="#b52d1b" d="M3,22V8H7V22H3M10,22V2H14V22H10M17,22V14H21V22H17Z" />
+              </svg>.skill()</a></li>
+            <li><a href="#project"><svg viewBox="0 0 24 24">
+              <path fill="#7eaea3" d="M21,16V4H3V16H21M21,2A2,2 0 0,1 23,4V16A2,2 0 0,1 21,18H14V20H16V22H8V20H10V18H3C1.89,18 1,17.1 1,16V4C1,2.89 1.89,2 3,2H21M5,6H14V11H5V6M15,6H19V8H15V6M19,9V14H15V9H19M5,12H9V14H5V12M10,12H14V14H10V12Z" />
+              </svg>.project()</a></li>
+            <li><a href="#experience"><svg viewBox="0 0 24 24">
+              <path fill="#456975" d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14M12,9L7,14H10V18H14V14H17L12,9Z" />
+              </svg>.xp()</a></li>
+            <li><a href="#contact"><svg viewBox="0 0 24 24"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg>.contact()</a></li>
+          </ul>
+        </div>
+        <button id="change-color" onclick="changeColor()" style="border-radius:32px;"><svg viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 0 15 21.54A10 10 0 0 1 15 2.46A10 10 0 0 0 2 12Z" /></svg></button>
+        <script type="text/javascript">
+          let colorTheme = 'light';
+          function changeColor(){
+            if(colorTheme === 'light'){
+              colorTheme = 'dark';
+              document.getElementById('change-color').innerHTML = '<svg viewBox="0 0 24 24"><path d="M3.55,18.54L4.96,19.95L6.76,18.16L5.34,16.74M11,22.45C11.32,22.45 13,22.45 13,22.45V19.5H11M12,5.5A6,6 0 0,0 6,11.5A6,6 0 0,0 12,17.5A6,6 0 0,0 18,11.5C18,8.18 15.31,5.5 12,5.5M20,12.5H23V10.5H20M17.24,18.16L19.04,19.95L20.45,18.54L18.66,16.74M20.45,4.46L19.04,3.05L17.24,4.84L18.66,6.26M13,0.55H11V3.5H13M4,10.5H1V12.5H4M6.76,4.84L4.96,3.05L3.55,4.46L5.34,6.26L6.76,4.84Z" /></svg>';
+              document.getElementsByTagName('body')[0].style.backgroundColor = '#2a2a2e';
+              document.getElementById('menu').children[0].style.backgroundColor = '#2a2a2e';
+              document.getElementsByTagName('body')[0].style.color = '#efefe9';
+              for(let i = 0; i < document.getElementsByTagName('svg').length; i++){
+                let docSVG = document.getElementsByTagName('svg')[i].style.fill;
+                if(docSVG === "" || docSVG === "black"){
+                  document.getElementsByTagName('svg')[i].style.fill = "rgb(239, 239, 233)";
+                }
+              }
+            }else{
+              colorTheme = 'light';
+              document.getElementById('change-color').innerHTML = '<svg viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 0 15 21.54A10 10 0 0 1 15 2.46A10 10 0 0 0 2 12Z" /></svg>';
+              document.getElementsByTagName('body')[0].style.backgroundColor = '#efefe9';
+              document.getElementById('menu').children[0].style.backgroundColor = '#efefe9';
+              document.getElementsByTagName('body')[0].style.color = 'black';
+              for(let i = 0; i < document.getElementsByTagName('svg').length; i++){
+                let docSVG = document.getElementsByTagName('svg')[i].style.fill;
+                if(docSVG === "rgb(239, 239, 233)"){
+                  document.getElementsByTagName('svg')[i].style.fill = "black";
+                }
+              }
+            }
+          }
+
+
+          var interval = setInterval(function(){
+            if(checkVisible(document.getElementById('xp-pro'))){
+                animationExp();
+                clearInterval(interval);
+            }
+          }, 500);
+
+          function checkVisible(elm){
+            var rect = elm.getBoundingClientRect();
+            var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+            return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+          }
+
+          function animationExp(){
+            let xpTr = document.getElementById('xp-pro').getElementsByTagName('tr');
+            for(let i = 0; i < xpTr.length; i++){
+              setTimeout(() => { xpTr[i].classList.add('date-animation'); }, i*1000);
+            }
+          }
+        </script>
+      </div>
+    </body>
+</html>

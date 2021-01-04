@@ -1,0 +1,104 @@
+:root{
+  --base-color: #efefe9;
+  --highlight-color: #fbc531;
+}
+
+@font-face{
+  font-family: "FontFamilyChoosed";
+  src: url(Killam-Bold.ttf) format("truetype");
+}
+
+[DISABLED]{
+  cursor: not-allowed;
+}
+
+[title]{
+  cursor: help;
+}
+
+body{
+  background-color: #2a2a2e;
+  font-family: "FontFamilyChoosed", serif;
+  margin: inherit;
+}
+
+button{
+  width: 100%;
+}
+
+form{
+  margin: auto;
+  width: 90%;
+}
+
+input[type=radio], input[type=checkbox]{
+  width: auto;
+}
+
+svg{
+  height: 16px;
+  width: 16px;
+}
+
+#card{
+  background-color: var(--base-color);
+  border: 6px solid var(--highlight-color);
+  border-radius: 16px;
+  box-shadow: 8px 8px 8px black;
+  margin: auto;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  width: 70%
+}
+
+#title{
+  background-color: var(--highlight-color);
+  font-size: 3em;
+  text-align: center;
+}
+
+#track{
+  display: flex;
+  justify-content: center;
+}
+#track div{
+  padding: 2%;
+  position: relative;
+}
+
+
+@media only screen and (min--moz-device-pixel-ratio: 1.5), (max-width: 800px) {/*smartphone*/
+body{
+  font-size: 3em;
+}
+
+input[type=checkbox]{
+  width: 100%;
+}
+
+input[type=file]{
+  font-size: 1.8vh;
+}
+
+svg{
+  height: 3vh;
+  width: 3vh;
+}
+
+#card{
+  width: 100%;
+}
+
+.btn{
+  font-size: 2em;
+}
+
+.form-control{
+  font-size: 1.2em;
+  height: 6vh;
+}
+
+.has-feedback label ~ .form-control-feedback{
+  top: calc(1.2em + 2vh);
+}
+}

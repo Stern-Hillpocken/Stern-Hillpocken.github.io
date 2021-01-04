@@ -1,0 +1,325 @@
+:root{
+  --base-color: #ff474d;
+}
+
+@font-face{
+  font-family: "FontFamilyChoosed";
+  src: url(./EspressoDolce.ttf) format("truetype");
+}
+
+a{
+  color: var(--base-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body{
+  background-color: white;
+  margin: inherit;
+  font-family: "FontFamilyChoosed", serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+button{
+  background-color: var(--base-color);
+  border: 4px solid var(--base-color);
+  border-radius: 40px;
+  color: white;
+  cursor: pointer;
+  font-family: "FontFamilyChoosed", serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+button:hover{
+  background-color: white;
+  color: var(--base-color);
+}
+
+footer{
+  background-color: lightgray;
+  font-size: 0.7em;
+  padding: 32px;
+}
+footer div{
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+footer table{
+  border-collapse: collapse;
+  margin: auto;
+}
+footer table td{
+  border: 1px solid black;
+  padding: 4px;
+}
+
+
+/* NAVIGATION */
+nav{
+  border-bottom: 4px solid var(--base-color);
+}
+
+nav{
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+}
+
+nav ul{
+  display: inline-block;
+  list-style-type: none;
+  margin: inherit;
+  width: 90%;
+}
+
+nav ul li{
+  float: left;
+  width: 25%;
+  text-align: center;
+  position: relative;
+}
+
+nav ul::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav ul a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid transparent;
+  padding: 10px 0px;
+}
+
+nav a:hover{
+  color: var(--base-color);
+  border-bottom: 2px solid var(--base-color);
+}
+
+.sous{
+  display: none;
+  box-shadow: 0px 2px 2px var(--base-color);
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+nav > ul li:hover .sous{
+  display: block;
+}
+.sous li{
+  float: none;
+  width: 100%;
+  text-align: left;
+}
+.sous a{
+  padding: 10px;
+  border-bottom: none;
+}
+.sous a:hover{
+  border-bottom: none;
+}
+.deroulant > a::after{
+  content:" v";
+  font-size: 0.7em;
+}
+
+
+h2{
+  margin-top: 128px;
+  position: relative;
+}
+h2::before{
+  content: "";
+  position: absolute;
+  left: 45%;
+  bottom: -8px;
+  height: 0px;
+  width: 10%;
+  border: 4px solid var(--base-color);
+  border-radius: 40px;
+}
+
+
+/*CAROUSSEL*/
+.cbox{
+  border: 2px solid var(--base-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px black;
+  display: inline-block;
+  width: 240px;
+  position: relative;
+}
+.cbox h3{
+  height: 2em;
+  overflow: hidden;
+  margin: 8px;
+}
+.cbox img{
+  margin: 24px;
+}
+.verso{
+  position: absolute;
+  background-color: var(--base-color);
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+}
+
+
+/* SLIDER */
+#slider{
+  background-color: lightgray;
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  height: 210px;
+  width: 320px;
+  margin: auto;
+  padding: inherit;
+}
+#slider li{
+  position: absolute;
+}
+.btn-slider{
+  position: absolute;
+  z-index: 1;
+}
+
+#sliider{
+  display: flex;
+  margin: auto;
+  height: 210px;
+  width: 320px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+#sliider img{
+  filter: grayscale(1);
+}
+
+
+/* CHATBOX */
+#chatbox{
+  background-color: white;
+  border: 2px solid var(--base-color);
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px black;
+  bottom: 64px;
+  font-family: sans-serif;
+  right: 8px;
+  position: fixed;
+  width: 400px;
+  z-index: 1000;
+  visibility: hidden;
+}
+#openchatbox{
+  bottom: 8px;
+  right: 8px;
+  position: fixed;
+  z-index: 1000;
+}
+#botname{
+  background-color: var(--base-color);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  color: white;
+  text-align: left;
+  padding: 12px;
+}
+.fb-style{
+  border: 2px solid white;
+  border-radius: 40px;
+  height: 32px;
+  width: 32px;
+  position: relative;
+  vertical-align: middle;
+}
+.fb-online::before{
+  content: "";
+  position: absolute;
+  background-color: green;
+  top: 40px;
+  left: 40px;
+  height: 8px;
+  width: 8px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+#chat{
+  max-height: 600px;
+  overflow: auto;
+}
+#chat table{
+  width: 100%;
+  margin-top: 12px;
+  border-spacing: 4px 16px;
+}
+#chat table tr{
+  vertical-align: top;
+  text-align: left;
+}
+.msg-chat{
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  font-size: 0.5em;
+  padding: 8px;
+  text-align: left;
+  display: inline-block;
+}
+.user-msg-chat{
+  background-color: rgba(155, 0, 0, 0.2);
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  font-size: 0.5em;
+  padding: 8px;
+  text-align: right;
+  display: inline-block;
+  float: right;
+}
+#chatsend{
+  border-top: 1px solid gray;
+}
+#chatsend input[type="text"]{
+  background-color: lightgray;
+  border: none;
+  font-family: sans-serif;
+  margin: 12px;
+  padding: 8px;
+  width: 75%;
+}
+
+
+
+#newsletter-mail{
+  border: 3px solid var(--base-color);
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  font-family: "FontFamilyChoosed", serif;
+  font-size: 1em;
+  padding-left: 8px;
+}
+form button[type=submit]{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.info{
+  display: inline-block;
+  background-color: var(--base-color);
+  border-radius: 40px;
+  color: white;
+  cursor: help;
+  height: 32px;
+  width: 32px;
+}
