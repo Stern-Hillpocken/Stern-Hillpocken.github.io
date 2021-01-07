@@ -72,6 +72,10 @@ hr{
   color: var(--highlight-color);
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 svg{
   height: 24px;
   width: 24px;
@@ -148,7 +152,6 @@ ul{
   width: 70%;
 }
 #xp-pro td{
-  text-align: justify;
   padding-bottom: 1vh;
   padding-left: 1vw;
   padding-right: 1vw;

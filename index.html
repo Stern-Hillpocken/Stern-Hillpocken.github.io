@@ -13,7 +13,7 @@
 
         <h2 id="about-me">À propos</h2>
 
-        <div id="about-me-desc">J’ai toujours pratiqué la programmation, que ce soit grâce à des cours à la fac, par l’utilisation de logiciel de statistiques durant mon master, ou de manière extra-scolaire par curiosité des différents langages et envies de création.<br/>Partant de cette passion toujours présente, je choisis aujourd’hui en faire ma profession, en y consacrant tout mon temps.<br/>Je retrouve dans cette discipline une certaine logique et rigueur scientifique que j’ai entretenues lors de mes études et qui correspondent à ma manière de vivre.<br/>Je me sens tout autant à l’aise au sein d’une équipe pour son dynamisme, l’aide et l’entrain de celle-ci, qu’en autonomie, me permettant d’apprendre par moi-même et de suivre une direction que j’ai comprise et intégrée.<br/>Je trouve stimulant de m’impliquer dans la recherche de solutions afin de satisfaire les missions qui me sont confiées.</div>
+        <div id="about-me-desc">J’ai toujours pratiqué la programmation, que ce soit grâce à des cours à la fac, par l’utilisation d’un logiciel de statistiques durant mon master, ou de manière extra-scolaire par curiosité des différents langages et envie de création.<br/>Partant de cette passion toujours présente, je choisis aujourd’hui en faire ma profession, en y consacrant tout mon temps.<br/>Je retrouve dans cette discipline une certaine logique et rigueur scientifique que j’ai entretenues lors de mes études et qui correspondent à ma manière de vivre.<br/>Je me sens tout autant à l’aise au sein d’une équipe pour son dynamisme, l’aide et l’entrain de celle-ci, qu’en autonomie, me permettant d’apprendre par moi-même et de suivre une direction que j’ai comprise et intégrée.<br/>Je trouve stimulant de m’impliquer dans la recherche de solutions afin de satisfaire les missions qui me sont confiées.</div>
 
         <h2 id="skill">Compétences et outils</h2>
 
@@ -80,7 +80,7 @@
             [['Code source','https://github.com/Stern-Hillpocken/fotos']]
           ],[
             'Nascere',
-            'Jeu de pose de tuiles et accomplissement d’objectifs. À chaque tour il faut placer la tuile qui est proposée sur le plateau central, le but étant de remplir au mieux les objectifs demandés.<br/>Un tutoriel est disponible en cliquant sur le (?) en bas à gauche de l’écran.<br/>Utilisation des hook d’effet, context, state et reducer.',
+            'Jeu de pose de tuiles et accomplissement d’objectifs. À chaque tour il faut placer la tuile qui est proposée sur le plateau central, le but étant de remplir au mieux les objectifs demandés.<br/>Un tutoriel est disponible en cliquant sur le (?) en bas à gauche de l’écran.<br/>Utilisation en React des hook d’effet, context, state et reducer.',
             ['nascere-0.png','nascere-1.png','nascere-2.png'],
             ['react','javascript','html5','css3'],
             [['Site web','https://oxhlo.csb.app/'],['Code source','https://codesandbox.io/s/oxhlo']]
@@ -173,7 +173,7 @@
               '2020',
               'Formation diplômante',
               'openclassrooms.com',
-              'Cours suivis sur ce site leader européen de la formation en ligne (avec plus de 3 millions d’utilisateurs par mois). Il permet de suivre de nombreux cours tant théorique que pratique. J’ai acquis grâce à ce site des diplômes reconnus par l’État (javascript, jquery, ...).'
+              'Cours suivis sur ce site leader européen de la formation en ligne (avec plus de 3 millions d’utilisateurs par mois). Il permet de suivre de nombreux cours tant théoriques que pratiques. J’ai acquis grâce à ce site des diplômes reconnus par l’État (en javascript, jquery, ...).'
             ],
             [
               '2019 >> maintenant',
@@ -217,7 +217,7 @@
           for(let i = 0; i < xpProData.length; i++){
             let date = '<div class="date">'+xpProData[i][0]+'</div>';
             let node = '<div class="node-line"></div><div class="node"><svg viewBox="0 0 24 24"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z" /></svg></div>';
-            let activity = '<span style="font-size:1.5em;font-weight:bold;">'+xpProData[i][1]+'</span><br/><span style="color:gray">'+xpProData[i][2]+'</span><br/>'+xpProData[i][3];
+            let activity = '<span style="font-size:1.5em;font-weight:bold;">'+xpProData[i][1]+'</span><br/><span style="color:gray">'+xpProData[i][2]+'</span><br/><p style="text-align:justify;">'+xpProData[i][3]+'</p>';
 
 
             if(i%2 === 0){
