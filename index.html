@@ -9,11 +9,11 @@
     <body>
       <div id="content">
 
-        <div style="position:relative;background-color:#d1d1d1"><img id="img-hang" alt="img-hang" src="assets/img/hang.jpeg"/><div id="hang">Nicolas<br/>GUÉRIN</div></div>
+        <div style="position:relative;background-color:#d1d1d1"><img id="img-hang" alt="img-hang" src="assets/img/hang.jpeg"/><div id="hang" style="color:black">Nicolas<br/>GUÉRIN</div></div>
 
         <h2 id="about-me">À propos</h2>
 
-        <div id="about-me-desc">Todo</div>
+        <div id="about-me-desc">J’ai toujours pratiqué la programmation, que ce soit grâce à des cours à la fac, par l’utilisation de logiciel de statistiques durant mon master, ou de manière extra-scolaire par curiosité des différents langages et envies de création.<br/>Partant de cette passion toujours présente, je choisis aujourd’hui en faire ma profession, en y consacrant tout mon temps.<br/>Je retrouve dans cette discipline une certaine logique et rigueur scientifique que j’ai entretenues lors de mes études et qui correspondent à ma manière de vivre.<br/>Je me sens tout autant à l’aise au sein d’une équipe pour son dynamisme, l’aide et l’entrain de celle-ci, qu’en autonomie, me permettant d’apprendre par moi-même et de suivre une direction que j’ai comprise et intégrée.<br/>Je trouve stimulant de m’impliquer dans la recherche de solutions afin de satisfaire les missions qui me sont confiées.</div>
 
         <h2 id="skill">Compétences et outils</h2>
 
@@ -68,8 +68,8 @@
         let projectData = [
           [
             'Pixelit',
-            'Jeu en ligne où il faut deviner le pixel art (dessin grâce à des pixels) des autres et faire deviner le sien pour marquer le plus de points.<br/>Utilisation d’un serveur pour stocker les informations, système de lobby, mise en place d’un chat, possibilité d’ajuster les paramètres de jeu, gameplay en pseudo temps réel.',
-            ['img1.png'],
+            'Jeu en ligne où il faut deviner le pixel art des autres (dessin grâce à des pixels) et faire deviner le sien pour marquer le plus de points.<br/>Utilisation d’un serveur pour stocker les informations, système de lobby, mise en place d’un chat, possibilité d’ajuster les paramètres de jeu, gameplay en pseudo temps réel.',
+            ['pixelit-0.png','pixelit-1.png','pixelit-2.png'],
             ['php','mysql','jquery','javascript','html5','css3'],
             [['Site web','http://pixelit.toile-libre.org/']]
           ],[
@@ -86,7 +86,7 @@
             [['Site web','https://oxhlo.csb.app/'],['Code source','https://codesandbox.io/s/oxhlo']]
           ],[
             'Tashi',
-            'Jeu de gestion de ressources et évènements narratifs. Lors de chaque journée, vous pourrez assigner vos ouvriers à différentes tâches : récolter des ressources ou construire des bâtiments. Gérez ces ressources et celles du lieu pour augmenter vos possibilités et la valeur de votre marchandise, mais attention : votre temps est compté.<br/>Projet sur une page géré presque entièrement en javascript. Utilisation des objets, tableaux, conditions, boucles, variables, etc...',
+            'Jeu de gestion de ressources et évènements narratifs inspiré de l’univers de <i>La Horde du Contrevent</i> (A. Damasio). Lors de chaque journée, vous pourrez assigner les membres de l’expédition à différentes tâches : récolter des ressources ou construire des bâtiments. Vous gérerez ces ressources et celles du lieu pour augmenter vos possibilités et la valeur de votre marchandise, mais attention : votre temps est compté.<br/>Projet réalisé presque entièrement en javascript. Utilisation des objets, tableaux, conditions, boucles, variables, etc...',
             ['tashi-0.png','tashi-1.png','tashi-2.png','tashi-3.png'],
             ['javascript','html5','css3'],
             [['Site web','https://trapez.itch.io/tashi'],['Code source','https://codesandbox.io/s/qtboo']]
@@ -98,7 +98,7 @@
             [['Télécharger le fichier','download/bggl.php" download"']]
           ],[
             'Modèles de site',
-            'Des modèles de sites pour avoir des idées.<br/>Un carousel et son pseudo bot qui guide l’utilisateur par des questions ciblées, un formulaire utilisant la puissance de bootstrap.',
+            'Présentation de modèles de sites permettant aux utilisateurs de s’en inspirer.<br/>Un carousel et son pseudo bot qui guide l’utilisateur par des questions ciblées, un formulaire utilisant la puissance de bootstrap.',
             ['wcs.png','bform.png'],
             ['javascript','bootstrap','html5','css3'],
             [['Modèle WCS','models/wcs/index.html'],['BForm','models/bform/index.html']]
@@ -171,27 +171,27 @@
           let xpProData = [
             [
               '2020',
-              'Site diplômant',
+              'Formation diplômante',
               'openclassrooms.com',
-              'Le site est leader européen de la formation en ligne avec plus de 3 millions d’utilisateurs par mois. Il permet de suivre de nombreux cours avec aussi bien de la théorie que de la pratique. Certains cours sont diplômant et reconnu par l’État.'
+              'Cours suivis sur ce site leader européen de la formation en ligne (avec plus de 3 millions d’utilisateurs par mois). Il permet de suivre de nombreux cours tant théorique que pratique. J’ai acquis grâce à ce site des diplômes reconnus par l’État (javascript, jquery, ...).'
             ],
             [
               '2019 >> maintenant',
               'Animateur jeux de société',
               'Jeux Barjo',
-              'Écoute client, réponse adaptée, curiosité et rigueur pour apprendre les règles.'
+              'Réponse adaptée au profil des joueurs, curiosité et rigueur pour intégrer les règles et les transmettre aux joueurs. Gestion de salle en autonomie.'
             ],
             [
               '2018 - 6 mois',
               'Cadre chargé d’études botaniques',
               'Association naturaliste CDPNE',
-              '<strong>Mission :</strong> TVB de l’agglomération blésoise, prise en charge de projets.<br/><strong>Process :</strong> 2 mois de terrains en autonomie, mise en place de cartes et rapports, analyse de similarité de relevés avec R.<br/><strong>Résultat :</strong> Maintient de l’écologie, de l’état ou de l’évolution des zones d’études.'
+              '<strong>Mission :</strong> Étude préliminaire à l’élaboration de la Trame Verte et Bleue de l’agglomération blésoise, prise en charge de projets.<br/><strong>Process :</strong> 2 mois de terrains en autonomie, création de cartes et rapports, analyse de similarité de relevés avec le logiciel de statistiques R.<br/><strong>Résultat :</strong> Maintien de l’écologie, de l’état ou de l’évolution des zones d’études.'
             ],
             [
               '2017 - 4 mois',
               'Technicien chargé d’études botaniques',
               'Bureau d’étude Sciences Environnement',
-              '<strong>Mission :</strong> Pour des PLU, identification de la végétation et des habitats naturels.<br/><strong>Process :</strong> Autonomie de terrain et bureau, rédaction des rapports pour les communes sur différents volets destinés à la compréhension des élus.<br/><strong>Résultat :</strong> Dossier remis à la DREAL pour examination et passage en phase 2.'
+              '<strong>Mission :</strong> Pour des Plans Locaux d’Urbanisme, identification de la végétation et des habitats naturels.<br/><strong>Process :</strong> Autonomie de terrain et bureau, rédaction des rapports pour les communes sur différents volets destinés à la compréhension et la validation des élus.<br/><strong>Résultat :</strong> Dossier remis à la DREAL pour validation et passage en phase 2.'
             ],
             [
               '2016',
@@ -203,13 +203,13 @@
               '2016 - 6 mois',
               'Chargé d’étude et recherche',
               'INRA AgroParisTech',
-              '<strong>Mission :</strong> Dans le cadre du plan Écophyto, élaboration d’un système informatique pour assembler et analyser trois bases de données spatialisées, effectuées à l’échelle nationale, données pluriannuelles.<br/><strong>Process :</strong> Extraction et nettoyage des données RPG, BDTOPO et Vigicultures sous R, analyse et interprétation, bibliographie en anglais, travaux en collaboration avec Arvalis et Terres Inovia, utilisation de Git, système d’exploitation Ubuntu.<br/><strong>Résultat :</strong> Découverte de liens entre biodiversité et abondance d’espèces, les chercheurs de l’INRA continuent d’utiliser mon outil.'
+              '<strong>Mission :</strong> Dans le cadre du plan Écophyto, création d’un système informatique pour assembler et analyser trois bases de données spatialisées, effectuées à l’échelle nationale et sur des données pluriannuelles.<br/><strong>Process :</strong> Extraction et nettoyage des données RPG, BDTOPO et Vigicultures sous R, analyse et interprétation, lecture de la bibliographie en anglais, travaux en collaboration avec Arvalis et Terres Inovia, utilisation de Git, système d’exploitation Ubuntu.<br/><strong>Résultat :</strong> Découverte de liens entre biodiversité et abondance d’espèces. Les chercheurs de l’INRA continuent d’utiliser mon outil.'
             ],
             [
               '2015 - 2 mois',
               'Chargé d’études',
               'Projet européen GLORIA',
-              '<strong>Mission :</strong> Dans le cadre du projet européen GLORIA visant à étudier l’évolution de la végétation alpine, mise en place de relevés et d’études statistiques.<br/><strong>Process :</strong> Identification d’espèces végétales, saisie et analyse de données sous R, aide à la rédaction d’un rapport pour le conseil scientifique, bibliographie en anglais, échange avec un laboratoire externe.<br/><strong>Résultat :</strong> Mise en évidence de l’évolution et prise en compte par le conseil scientifique.'
+              '<strong>Mission :</strong> Dans le cadre du projet européen GLORIA visant à étudier l’évolution de la végétation alpine, mise en place de relevés et d’études statistiques.<br/><strong>Process :</strong> Identification d’espèces végétales, saisie et analyse de données sous R, aide à la rédaction d’un rapport pour le conseil scientifique, bibliographie en anglais, échange avec un laboratoire externe.<br/><strong>Résultat :</strong> Mise en évidence de l’évolution et prise en compte par le conseil scientifique européen.'
             ]
           ];
 
@@ -276,9 +276,12 @@
               document.getElementsByTagName('body')[0].style.color = '#efefe9';
               for(let i = 0; i < document.getElementsByTagName('svg').length; i++){
                 let docSVG = document.getElementsByTagName('svg')[i].style.fill;
-                if(docSVG === "" || docSVG === "black"){
-                  document.getElementsByTagName('svg')[i].style.fill = "rgb(239, 239, 233)";
+                if(docSVG === "" || docSVG === 'black'){
+                  document.getElementsByTagName('svg')[i].style.fill = 'rgb(239, 239, 233)';
                 }
+              }
+              for(let i = 0; i < document.getElementsByClassName('node').length; i++){
+                document.getElementsByClassName('node')[i].style.backgroundColor = '#2a2a2e';
               }
             }else{
               colorTheme = 'light';
@@ -288,9 +291,12 @@
               document.getElementsByTagName('body')[0].style.color = 'black';
               for(let i = 0; i < document.getElementsByTagName('svg').length; i++){
                 let docSVG = document.getElementsByTagName('svg')[i].style.fill;
-                if(docSVG === "rgb(239, 239, 233)"){
-                  document.getElementsByTagName('svg')[i].style.fill = "black";
+                if(docSVG === 'rgb(239, 239, 233)'){
+                  document.getElementsByTagName('svg')[i].style.fill = 'black';
                 }
+              }
+              for(let i = 0; i < document.getElementsByClassName('node').length; i++){
+                document.getElementsByClassName('node')[i].style.backgroundColor = '';
               }
             }
           }

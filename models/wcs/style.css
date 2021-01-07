@@ -299,8 +299,6 @@ h2::before{
   width: 75%;
 }
 
-
-
 #newsletter-mail{
   border: 3px solid var(--base-color);
   border-top-left-radius: 40px;
@@ -322,4 +320,23 @@ form button[type=submit]{
   cursor: help;
   height: 32px;
   width: 32px;
+}
+
+
+@media only screen and (min--moz-device-pixel-ratio: 1.5), (max-width: 700px) {
+  body{
+    font-size: 3em;
+  }
+  h3{
+    font-size: 4vw;
+  }
+  #chatbox{
+    width: 90%;
+  }
+  #chat table{
+    font-size: 1.5em;
+  }
+  #chatbox input{
+    font-size: 1em;
+  }
 }
