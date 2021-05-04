@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
+        <meta name="description" content="Portfolio du développeur web Nicolas Guérin">
+        <meta name="keywords" content="Portfolio, Développeur, Fullstack, JavaScript, HTML, CSS, React, PHP">
+        <meta name="author" content="Nicolas Guérin">
         <link rel="stylesheet" href="style.css" />
         <link rel="icon" type="image/png" href="assets/img/favicon.png" />
         <title>Développeur web full-stack junior - Nicolas GUÉRIN</title>
@@ -67,6 +70,12 @@
         <script type="text/javascript">
         let projectData = [
           [
+            'API BGG',
+            'Utilisation de l’API de <a href="https://boardgamegeek.com">boardgamegeek.com</a> pour faire des recherches de jeux (en français et anglais), avec ou sans extensions. Affichage de plusieurs informations tel que l’image, le nom, le classement, et la description au survol de l’image.<br/>Utilisation de requêtes à l’intérieur de requêtes pour aller dans un premier temps chercher les titres, puis les informations de chaque titre.',
+            ['apibgg-0.png','apibgg-1.png'],
+            ['javascript','html5','css3'],
+            [['Site web','projects/apiBGG/index.html']]
+          ],[
             'Pixelit',
             'Jeu en ligne où il faut deviner le pixel art des autres (dessin grâce à des pixels) et faire deviner le sien pour marquer le plus de points.<br/>Utilisation d’un serveur pour stocker les informations, système de lobby, mise en place d’un chat, possibilité d’ajuster les paramètres de jeu, gameplay en pseudo temps réel.',
             ['pixelit-0.png','pixelit-1.png','pixelit-2.png'],
@@ -227,7 +236,7 @@
             }
           }
 
-          document.getElementById('xp-pro').innerHTML = display;
+          document.getElementById('xp-pro').insertAdjacentHTML('beforeend', display);
         </script>
 
         <h2 id="contact">Contact</h2>
@@ -270,7 +279,7 @@
           function changeColor(){
             if(colorTheme === 'light'){
               colorTheme = 'dark';
-              document.getElementById('change-color').innerHTML = '<svg viewBox="0 0 24 24"><path d="M3.55,18.54L4.96,19.95L6.76,18.16L5.34,16.74M11,22.45C11.32,22.45 13,22.45 13,22.45V19.5H11M12,5.5A6,6 0 0,0 6,11.5A6,6 0 0,0 12,17.5A6,6 0 0,0 18,11.5C18,8.18 15.31,5.5 12,5.5M20,12.5H23V10.5H20M17.24,18.16L19.04,19.95L20.45,18.54L18.66,16.74M20.45,4.46L19.04,3.05L17.24,4.84L18.66,6.26M13,0.55H11V3.5H13M4,10.5H1V12.5H4M6.76,4.84L4.96,3.05L3.55,4.46L5.34,6.26L6.76,4.84Z" /></svg>';
+              document.getElementById('change-color').insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24"><path d="M3.55,18.54L4.96,19.95L6.76,18.16L5.34,16.74M11,22.45C11.32,22.45 13,22.45 13,22.45V19.5H11M12,5.5A6,6 0 0,0 6,11.5A6,6 0 0,0 12,17.5A6,6 0 0,0 18,11.5C18,8.18 15.31,5.5 12,5.5M20,12.5H23V10.5H20M17.24,18.16L19.04,19.95L20.45,18.54L18.66,16.74M20.45,4.46L19.04,3.05L17.24,4.84L18.66,6.26M13,0.55H11V3.5H13M4,10.5H1V12.5H4M6.76,4.84L4.96,3.05L3.55,4.46L5.34,6.26L6.76,4.84Z" /></svg>');
               document.getElementsByTagName('body')[0].style.backgroundColor = '#2a2a2e';
               document.getElementById('menu').children[0].style.backgroundColor = '#2a2a2e';
               document.getElementsByTagName('body')[0].style.color = '#efefe9';
@@ -285,7 +294,7 @@
               }
             }else{
               colorTheme = 'light';
-              document.getElementById('change-color').innerHTML = '<svg viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 0 15 21.54A10 10 0 0 1 15 2.46A10 10 0 0 0 2 12Z" /></svg>';
+              document.getElementById('change-color').insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 0 15 21.54A10 10 0 0 1 15 2.46A10 10 0 0 0 2 12Z" /></svg>');
               document.getElementsByTagName('body')[0].style.backgroundColor = '#efefe9';
               document.getElementById('menu').children[0].style.backgroundColor = '#efefe9';
               document.getElementsByTagName('body')[0].style.color = 'black';
@@ -310,8 +319,8 @@
           }, 500);
 
           function checkVisible(elm){
-            var rect = elm.getBoundingClientRect();
-            var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+            let rect = elm.getBoundingClientRect();
+            let viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
             return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
           }
 
