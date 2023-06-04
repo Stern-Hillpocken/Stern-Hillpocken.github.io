@@ -7,7 +7,7 @@
         <meta name="author" content="Nicolas Guérin">
         <link rel="stylesheet" href="style.css" />
         <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-        <title>Développeur web full-stack junior - Nicolas GUÉRIN</title>
+        <title>Développeur Java/Angular - Nicolas GUÉRIN</title>
     </head>
     <body>
       <div id="content">
@@ -20,26 +20,39 @@
 
         <h2 id="skill">Compétences et outils</h2>
 
+        <div class="skill-box">
+          <h3>Soft skills</h3>
+          <hr/>
+          <ul>
+            <li><span class="highlight">Autonomie&nbsp;:</span> Formation en autodidacte, responsable de la gestion d'un bar.</li>
+            <li><span class="highlight">Curiosité&nbsp;:</span> Multiplicité des langages appris, étude de nouvelles espèces de plantes.</li>
+            <li><span class="highlight">Veille technologique&nbsp;:</span> Veille ludique pour un bar à jeux, veille scientifique pour les papiers en sciences végétales.</li>
+            <li><span class="highlight">Rigueur scientifique&nbsp;:</span> Master en écologie végétale, clean code.</li>
+            <li><span class="highlight">Communication&nbsp;:</span> Sport en équipe (basket, roller), bar à jeux de société, groupes de travaux scientifiques.</li>
+          </ul>
+        </div>
+
           <script type="text/javascript">
             let skillData = [
               ['Front-end',
-                ['HTML5','html5',4],
-                ['CSS3','css3',4],
-                ['Bootstrap','bootstrap',2]
-              ],
-              ['Javascript',
-                ['Javascript','javascript',4],
-                ['React','react',2],
-                ['jQuery','jquery',2]
+                ['Angular','angular'],
+                ['Javascript','javascript'],
+                ['React','react'],
+                ['HTML5','html5'],
+                ['CSS3','css3'],
+                ['jQuery','jquery'],
+                ['Bootstrap','bootstrap']
               ],
               ['Back-end',
-                ['PHP','php',3],
-                ['MySQL','mysql',2]
+                ['Java','java'],
+                ['Spring','spring'],
+                ['PHP','php'],
+                ['MySQL','mysql']
               ],
               ['Outils',
-                ['Github','github',4],
-                ['Atom','atom',4],
-                ['GIMP','gimp',3]
+                ['Github','github'],
+                ['VSCode','vscode'],
+                ['IntelliJ','intellij']
               ],
             ];
             let skillCards = [];
@@ -48,14 +61,7 @@
               skillCards[i].className = 'skill-box';
               let display = '<h3>'+skillData[i][0]+'</h3><hr/>';
               for(let j = 1; j < skillData[i].length; j++){
-                display += '<div class="skill-card"><div><img src="assets/img/logo/'+skillData[i][j][1]+'.png" alt="'+skillData[i][j][1]+'-img"/> '+skillData[i][j][0]+'</div><div>';
-                for(let k = 0; k < skillData[i][j][2]; k++){
-                  display += '<svg viewBox="0 0 24 24"><path fill="#fbc531" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>';
-                }
-                for(let k = 0; k < 5-skillData[i][j][2]; k++){
-                  display += '<svg viewBox="0 0 24 24"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z" /></svg>';
-                }
-                display += '</div></div>';
+                display += '<div class="skill-card"><div><img src="assets/img/logo/'+skillData[i][j][1]+'.png" alt="'+skillData[i][j][1]+'-img"/> '+skillData[i][j][0]+'</div></div>';
                 skillCards[i].innerHTML = display;
               }
             }
@@ -65,16 +71,28 @@
             }
           </script>
 
-        <h2 id="project">Projets</h2>
+        <h2 id="project">Projets 🏆 Top 5</h2>
 
         <script type="text/javascript">
         let projectData = [
           [
-            'API BGG',
-            'Utilisation de l’API de <a href="https://boardgamegeek.com">boardgamegeek.com</a> pour faire des recherches de jeux (en français et anglais), avec ou sans extensions. Affichage de plusieurs informations tel que l’image, le nom, le classement, et la description au survol de l’image.<br/>Utilisation de requêtes à l’intérieur de requêtes pour aller dans un premier temps chercher les titres, puis les informations de chaque titre.',
-            ['apibgg-0.png','apibgg-1.png'],
-            ['javascript','html5','css3'],
-            [['Site web','projects/apiBGG/index.html']]
+            'Event-U-ally',
+            'Ce projet est celui de fin de formation à la <span class="highlight">Wild Code School</span>. Ce projet a été réalisé en <span class="highlight">un mois et demi</span> à <span class="highlight">deux</span> coéquipiers, en parallèle des cours dispensés quotidiennement.<br>Le but de l’application est de regrouper les évènements culturels sur Bordeaux, et de les afficher selon les préfèrences de l’utilisateur.<br>Il nous a donc fallu créer un <span class="highlight">CRUD</span> (Create, Read, Update, Delete) pour les utilisateurs, pour les organisations et associations, ainsi que pour les évènements proposés par ces dernières. Nous avons une page d’explication et de bienvenue si le <span>local storage</span> de l’utilisateur nous indique que c’est sa première visite, puis un <span class="highlight">feed</span> comportant les <span class=highlight">cartes</span> qu’il est possible de <span class="highlight">filtrer</span>. Il est également possible de voir les évènements sur une carte <span class="highlight">Open Street Map</span> grâce à l’appel d’une <span class="highlight">API</span>. La site étant designé en mobile first, la barre de navigation est visible en bas de l’écran et permet rapidement d’accéder à la page de connexion, de compte, la carte ou une aide. La page de compte recense les évènements pour lesquels l’utilisateur participe et il peut les gérer à cet endroit.<br>Le travail est encore en cours...',
+            ['eventually-0.png','eventually-1.png'],
+            ['angular','spring','html5','css3'],
+            [['Site web','https://github.com/WildCodeSchool/culti-vibes']]
+          ],[
+            'Hackathon',
+            'Avec une contraite de temps de <span class="highlight">12 heures</span>, et une thématique imposée (les vacances), nous devions consommer <span class="highlight">une API</span>.<br>J’ai pour ma part décidé d’imaginer une application qui demande à l’utilisateur sa position pour ensuite lui indiquer dans un rayon choisi (100&nbsp;m, 500&nbsp;m) les informations souhaitées (café, tourisme).<br>J’ai utilisé une API pour connaître les informations alentours et une, pour en fonction du nom du point d’intérêt, afficher une image. Il est également possible de mettre en favoris les éléments choisis et de les supprimer (en session locale).<br>La réponse de l’API me permet également de donner la distance du lieu par rapport à l’utilisateur, et la direction par rapport au nord.',
+            ['hackathon-0.png','hackathon-1.png','hackathon-2.png','hackathon-3.png'],
+            ['angular','html5','css3'],
+            [['Code','https://github.com/Stern-Hillpocken/hackathon-wcs'],['Site web','https://orb1x4.csb.app/']]
+          ],[
+            'Un coin de table',
+            'Site web permettant de jouer à des jeux de société avec peu de matériel, ou sans matériel du tout.<br/>Utilisation et réutilisation de modules adaptables en fonction de la demande, grille, gestion de l’aléatoire, compteur. Grande base de données pour l’aléatoire et pour les jeux. Choix du jeu en fonction du nombre de personnes et du matériel à disposition.',
+            ['uncoindetable-0.png','uncoindetable-1.png'],
+            ['react','html5','css3'],
+            [['Site web','https://ibgiv.csb.app/']]
           ],[
             'Pixelit',
             'Jeu en ligne où il faut deviner le pixel art des autres (dessin grâce à des pixels) et faire deviner le sien pour marquer le plus de points.<br/>Utilisation d’un serveur pour stocker les informations, système de lobby, mise en place d’un chat, possibilité d’ajuster les paramètres de jeu, gameplay en pseudo temps réel.',
@@ -82,16 +100,16 @@
             ['php','mysql','jquery','javascript','html5','css3'],
             [['Site web','http://pixelit.toile-libre.org/']]
           ],[
-            'Fotos',
-            'Site interface permettant de gérer les dossiers photos du serveur en question. La contrainte du projet étant de ne pas utiliser de base de données donc pas de SQL.<br/>Création et suppression de dossiers et d’images, modification possible du titre du dossier, de la définition de son contenu, de la définition des images, de la chronologie des images (grâce au titre).',
-            ['fotos-0.png','fotos-1.png','fotos-2.png','fotos-3.png','fotos-4.png'],
-            ['php','javascript','html5','css3'],
-            [['Code source','https://github.com/Stern-Hillpocken/fotos']]
+            'API BGG',
+            'Utilisation de l’API de <a href="https://boardgamegeek.com">boardgamegeek.com</a> pour faire des recherches de jeux (en français et anglais), avec ou sans extensions. Affichage de plusieurs informations tel que l’image, le nom, le classement, et la description au survol de l’image.<br/>Utilisation de requêtes à l’intérieur de requêtes pour aller dans un premier temps chercher les titres, puis les informations de chaque titre.',
+            ['apibgg-0.png','apibgg-1.png'],
+            ['javascript','html5','css3'],
+            [['Site web','projects/apiBGG/index.html']]
           ],[
             'Nascere',
             'Jeu de pose de tuiles et accomplissement d’objectifs. À chaque tour il faut placer la tuile qui est proposée sur le plateau central, le but étant de remplir au mieux les objectifs demandés.<br/>Un tutoriel est disponible en cliquant sur le (?) en bas à gauche de l’écran.<br/>Utilisation en React des hook d’effet, context, state et reducer.',
             ['nascere-0.png','nascere-1.png','nascere-2.png'],
-            ['react','javascript','html5','css3'],
+            ['react','html5','css3'],
             [['Site web','https://oxhlo.csb.app/'],['Code source','https://codesandbox.io/s/oxhlo']]
           ],[
             'Tashi',
@@ -99,6 +117,12 @@
             ['tashi-0.png','tashi-1.png','tashi-2.png','tashi-3.png'],
             ['javascript','html5','css3'],
             [['Site web','https://trapez.itch.io/tashi'],['Code source','https://codesandbox.io/s/qtboo']]
+          ],[
+            'Fotos',
+            'Site interface permettant de gérer les dossiers photos du serveur en question. La contrainte du projet étant de ne pas utiliser de base de données donc pas de SQL.<br/>Création et suppression de dossiers et d’images, modification possible du titre du dossier, de la définition de son contenu, de la définition des images, de la chronologie des images (grâce au titre).',
+            ['fotos-0.png','fotos-1.png','fotos-2.png','fotos-3.png','fotos-4.png'],
+            ['php','javascript','html5','css3'],
+            [['Code source','https://github.com/Stern-Hillpocken/fotos']]
           ],[
             'Boardgame grep list',
             'Fichier qui va chercher des informations sur un site de vente de jeux pour les afficher sur la page, en fonction des jeux rentrés dans le fichier. Permet de générer automatiquement un affichage agréable et détaillé à partir d’un tableau de données.<br/>Récupération de données externes liées au site de vente, traitement de ces données avec php via des conditions, des tableaux, etc...',
@@ -120,14 +144,16 @@
           projectFrames.push(document.createElement('div'))
           projectFrames[i].style.paddingBottom = '8vh';
           projectFrames[i].style.paddingTop = '5vh';
-          if(i%2 === 1){projectFrames[i].style.backgroundColor = 'rgba(0,0,0,0.1)';}
-          let display = '<div class="project-frame"><h3>'+projectData[i][0]+'</h3><p>'+projectData[i][1]+'</p><div class="slider">';
-          display += '<button class="btn-slider" onclick="slideIt(-1,'+i+')"><</button><ul>';
+          if(i < 5 && i%2 === 1 || i >= 5 && i%2 === 0){projectFrames[i].style.backgroundColor = 'rgba(0,0,0,0.1)';}
+          let display = '<div class="project-frame"><h3>';
+          if(i === 0){display += '🥇'}else if(i === 1){display += '🥈'}else if(i === 2){display += '🥉'}else if( i < 5){display += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>medal-outline</title><path d="M14.94 19.5L12 17.77L9.06 19.5L9.84 16.16L7.25 13.92L10.66 13.63L12 10.5L13.34 13.63L16.75 13.92L14.16 16.16M20 2H4V4L8.86 7.64A8 8 0 1 0 15.14 7.64L20 4M18 15A6 6 0 1 1 10.82 9.12A5.86 5.86 0 0 1 13.18 9.12A6 6 0 0 1 18 15M12.63 7H11.37L7.37 4H16.71Z" /></svg>'}
+          display += projectData[i][0]+'</h3><p>'+projectData[i][1]+'</p><div class="slider">';
+          display += '<button class="btn-slider" onclick="slideIt(-1,'+i+')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-left-thick</title><path d="M20,10V14H11L14.5,17.5L12.08,19.92L4.16,12L12.08,4.08L14.5,6.5L11,10H20Z" /></svg></button><ul>';
           for(let j = 0; j < projectData[i][2].length; j++){//img
             display += '<li><img src="assets/img/project/'+projectData[i][2][j]+'" alt="'+projectData[i][2][j]+'"/></li>';
           }
-          display += '</ul><button class="btn-slider" onclick="slideIt(1,'+i+')">></button>';
-          display += '</div><div style="padding:16px">';
+          display += '</ul><button class="btn-slider" onclick="slideIt(1,'+i+')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-right-thick</title><path d="M4,10V14H13L9.5,17.5L11.92,19.92L19.84,12L11.92,4.08L9.5,6.5L13,10H4Z" /></svg></button>';
+          display += '</div><div class="technos" style="padding:16px">';
           for(let j = 0; j < projectData[i][3].length; j++){//tech
             display += '<img src="assets/img/logo/'+projectData[i][3][j]+'.png" alt="'+projectData[i][3][j]+'-img"/>';
           }
@@ -141,6 +167,9 @@
           }
           display += '</div></div>';
           projectFrames[i].innerHTML = display;
+          if(i === 4){
+            projectFrames[i].innerHTML += '<br><br><h2>Autres projets</h2>';
+          }
         }
         let project = document.getElementById('project');
         for(let i = projectFrames.length-1; i >= 0; i--){
@@ -178,6 +207,12 @@
 
         <script type="text/javascript">
           let xpProData = [
+          [
+              '2023',
+              'Formation Wild Code School',
+              'wildcodeschool.com',
+              'Formation intense de développeur web sur les technologies Java et Angular, cours en autonomie, ateliers, dojos, mise en place de la méthode SCRUM, exercice d’endossement des rôles de PO et SCRUM Master, projets en équipe.'
+            ],
             [
               '2020',
               'Formation diplômante',
@@ -185,7 +220,7 @@
               'Cours suivis sur ce site leader européen de la formation en ligne (avec plus de 3 millions d’utilisateurs par mois). Il permet de suivre de nombreux cours tant théoriques que pratiques. J’ai acquis grâce à ce site des diplômes reconnus par l’État (en javascript, jquery, ...).'
             ],
             [
-              '2019 >> maintenant',
+              '2019 - 4 ans',
               'Animateur jeux de société',
               'Jeux Barjo',
               'Réponse adaptée au profil des joueurs, curiosité et rigueur pour intégrer les règles et les transmettre aux joueurs. Gestion de salle en autonomie.'
@@ -256,7 +291,7 @@
           <div>
             <span>Nicolas
             GUÉRIN</span><br/>
-            Développeur web full-stack junior
+            Développeur Java/Angular
           </div>
           <ul>
             <li><a href="#about-me"><svg viewBox="0 0 24 24">

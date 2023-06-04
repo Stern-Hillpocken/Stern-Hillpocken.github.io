@@ -52,7 +52,7 @@ button{
 h2{
   background-color: var(--highlight-color);
   color: var(--base-color);
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 8vh;
   margin-top: inherit;
   padding-left: 3vw;
@@ -62,10 +62,10 @@ h2{
 
 h3{
   color: var(--highlight-color);
-  font-size: 1.5em;
+  font-size: 2em;
 }
 .project-frame h3{
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 hr{
@@ -89,7 +89,7 @@ ul{
 }
 
 #about-me-desc{
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin: auto;
   padding-bottom: 8vh;
   text-align: justify;
@@ -124,7 +124,7 @@ ul{
 }
 
 #menu{
-  box-shadow: 0px 0px 6px black;
+  box-shadow: 0px 0px 8px black;
   min-width: 120px;
   width: 10%;
 }
@@ -197,6 +197,11 @@ ul{
   100% {opacity: 100%;}
 }
 
+.highlight{
+  color: var(--highlight-color);
+  font-weight: bold;
+}
+
 .node{
   background-color: var(--base-color);
   border: 4px solid var(--highlight-color);
@@ -222,6 +227,11 @@ ul{
 }
 .project-frame div{
   text-align: center;
+}
+.project-frame h3 svg{
+  height: 1em;
+  width: 1em;
+  vertical-align: sub;
 }
 .project-frame p{
   display: inline-block;
@@ -266,6 +276,7 @@ ul{
   width: 50%;
 }
 .slider button{
+  border-radius: 2em;
   position: absolute;
 }
 .slider ul{
@@ -351,13 +362,22 @@ svg{
 #menu li{
   display: inline-block;
 }
+.project-frame .technos img{
+  max-height: 128px;
+  max-width: 128px;
+}
 .project-frame>p{
+  font-size: 1.2em;
   width: 100%;
+}
+.project-frame a{
+  font-size: 2em;
 }
 .slider{
   width: 100%;
 }
-.slider button{
-  font-size: 1.5em;
+.slider button svg{
+  height: 128px;
+  width: 64px;
 }
 }
