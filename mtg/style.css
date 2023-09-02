@@ -1,0 +1,115 @@
+:root{
+    --base-color: #efefe9;
+    --highlight-color: #ea3601;
+}
+
+@font-face{
+    font-family: "FontFamilyChoosed";
+    src: url(Gothamic.ttf) format("truetype");
+}
+
+h1{
+    background-color: black;
+    color: var(--base-color);
+    margin: 0;
+    padding: 1em;
+    background-image: url(./mtg_logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+a.button{
+    cursor: pointer;
+    background-color: var(--highlight-color);
+    border: 2px solid var(--base-color);
+    border-radius: 8px;
+    color: var(--base-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1em 2em;
+    font-size: 1.5em;
+}
+
+body{
+    font-family: "FontFamilyChoosed", serif;
+    margin: inherit;
+    text-align: center;
+    background-color: var(--base-color);
+}
+
+#disclaimer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: gray;
+    font-size: 0.7em;
+}
+
+#carousel{
+    position: relative;
+}
+.slide{
+    display: none;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: center;
+    padding-top: 2em;
+}
+.slide h2, .slide p{
+    color: var(--base-color);
+    padding: 1em;
+    margin: 0;
+    font-size: 2.7em;
+    text-shadow: black -3px 3px;
+    -webkit-text-stroke: 1px black;
+}
+.slide h2{
+    padding: 0;
+    color: var(--highlight-color);
+}
+#arrows{
+    position: absolute;
+    top: 1.5em;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+.arrow{
+    cursor: pointer;
+    border: 2px solid var(--highlight-color);
+    background-color: black;
+    padding: 0.5em;
+}
+svg{
+    height: 2em;
+    width: 2em;
+    fill: var(--base-color);
+    vertical-align: middle;
+}
+
+#big-card{
+    width: 100vw;
+}
+#big-card img{
+    width: 100%;
+}
+.shuffle, .next-card{
+    border: 2px solid var(--base-color);
+    border-radius: 8px;
+}
+.shuffle{
+    background-color: black;
+    color: var(--base-color);
+}
+.next-card{
+    background-color: var(--highlight-color);
+    color: var(--base-color);
+    font-size: 1em;
+    padding: 1em;
+    width: 100vw;
+}
+.next-card svg{
+    height: 4em;
+    width: 4em;
+}

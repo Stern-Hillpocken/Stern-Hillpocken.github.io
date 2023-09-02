@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css" />
+    <title>MTG > Archenemy</title>
+</head>
+<body style="background-color: black;">
+    <main>
+        <button class="shuffle" onclick="startGame()">Recommencer <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>shuffle-variant</title><path d="M17,3L22.25,7.5L17,12L22.25,16.5L17,21V18H14.26L11.44,15.18L13.56,13.06L15.5,15H17V12L17,9H15.5L6.5,18H2V15H5.26L14.26,6H17V3M2,6H6.5L9.32,8.82L7.2,10.94L5.26,9H2V6Z" /></svg></button>
+        <div id="big-card">
+
+        </div>
+        <button class="next-card" onclick="nextCard()">Suivante<br><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>page-next-outline</title><path d="M22,3H5A2,2 0 0,0 3,5V9H5V5H22V19H5V15H3V19A2,2 0 0,0 5,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M7,15V13H0V11H7V9L11,12L7,15M20,13H13V11H20V13M20,9H13V7H20V9M17,17H13V15H17V17Z" /></svg></button>
+    </main>
+</body>
+<script>
+    let indexOfCard = -1;
+    let cardsName = [];
+    let cardsOrdered = [];
+
+    function startGame(){
+        cardsName = ["oarc-10★-every-hope-shall-vanish.jpg","oarc-27★-my-crushing-masterstroke.jpg","oarc-43★-your-fate-is-thrice-sealed.jpg","oe01-19★-what-s-yours-is-now-mine.jpg","oarc-11★-every-last-vestige-shall-rot.jpg","oarc-28★-my-genius-knows-no-bounds.jpg","oarc-44★-your-puny-minds-cannot-fathom.jpg","oe01-1★-because-i-have-willed-it.jpg","oarc-12★-evil-comes-to-fruition.jpg","oarc-29★-my-undead-horde-awakens.jpg","oarc-45★-your-will-is-not-your-own.jpg","oe01-20★-when-will-you-learn.jpg","oarc-13★-the-fate-of-the-flammable.jpg","oarc-2★-all-shall-smolder-in-my-wake.jpg","oarc-4★-behold-the-power-of-destruction.jpg","oe01-2★-behold-my-grandeur.jpg","oarc-14★-feed-the-machine.jpg","oarc-30★-my-wish-is-your-command.jpg","oarc-5★-choose-your-champion.jpg","oe01-3★-bow-to-my-command.jpg","oarc-15★-i-bask-in-your-silent-awe.jpg","oarc-31★-nature-demands-an-offering.jpg","oarc-6★-dance-pathetic-marionette.jpg","oe01-4★-choose-your-demise.jpg","oarc-16★-i-call-on-the-ancient-magics.jpg","oarc-32★-nature-shields-its-own.jpg","oarc-7★-the-dead-shall-serve.jpg","oe01-5★-delight-in-the-hunt.jpg","oarc-17★-i-delight-in-your-convulsions.jpg","oarc-33★-nothing-can-stop-me-now.jpg","oarc-8★-a-display-of-my-dark-power.jpg","oe01-6★-every-dream-a-nightmare.jpg","oarc-18★-i-know-all-i-see-all.jpg","oarc-34★-only-blood-ends-your-nightmares.jpg","oarc-9★-embrace-my-diabolical-vision.jpg","oe01-7★-for-each-of-you-a-gift.jpg","oarc-19★-ignite-the-cloneforge.jpg","oarc-35★-the-pieces-are-coming-together.jpg","oe01-10★-the-mighty-will-fall.jpg","oe01-8★-know-evil.jpg","oarc-1★-all-in-good-time.jpg","oarc-36★-realms-befitting-my-majesty.jpg","oe01-11★-my-forces-are-innumerable.jpg","oe01-9★-make-yourself-useful.jpg","oarc-20★-into-the-earthen-maw.jpg","oarc-37★-roots-of-all-evil.jpg","oe01-12★-my-laughter-echoes.jpg","parc-54-plots-that-span-centuries.jpg","oarc-21★-introductions-are-in-order.jpg","oarc-38★-rotted-ones-lay-siege.jpg","oe01-13★-no-one-will-hear-your-cries.jpg","parc-55-perhaps-you-ve-met-my-cohort.jpg","oarc-22★-the-iron-guardian-stirs.jpg","oarc-39★-surrender-your-thoughts.jpg","oe01-14★-pay-tribute-to-me.jpg","parc-56-your-inescapable-doom.jpg","oarc-23★-know-naught-but-fire.jpg","oarc-3★-approach-my-molten-realm.jpg","oe01-15★-power-without-equal.jpg","parc-57-drench-the-soil-in-their-blood.jpg","oarc-24★-look-skyward-and-despair.jpg","oarc-40★-tooth-claw-and-tail.jpg","oe01-16★-a-reckoning-approaches.jpg","parc-58-imprison-this-insolent-wretch.jpg","oarc-25★-may-civilization-collapse.jpg","oarc-41★-the-very-soil-shall-shake.jpg","oe01-17★-there-is-no-refuge.jpg","oarc-26★-mortal-flesh-is-weak.jpg","oarc-42★-which-of-you-burns-brightest.jpg","oe01-18★-this-world-belongs-to-me.jpg"];
+        cardsOrdered = [];
+        while(cardsName.length > 0){
+            let randomIndex = Math.floor(Math.random() * cardsName.length);
+            cardsOrdered.push(cardsName[randomIndex]);
+            cardsName.splice(randomIndex,1);
+
+        }
+        nextCard();
+    }
+
+    function nextCard(){
+        indexOfCard ++;
+        if(indexOfCard >= cardsOrdered.length) indexOfCard = 0;
+        document.getElementById("big-card").innerHTML = '<img src="./schemes/'+cardsOrdered[indexOfCard]+'">';
+    }
+
+    startGame();
+</script>
+</html>

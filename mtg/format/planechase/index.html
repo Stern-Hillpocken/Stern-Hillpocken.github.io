@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css" />
+    <title>MTG > Planechase</title>
+</head>
+<body style="background-color: black;">
+    <main>
+        <button class="shuffle" onclick="startGame()">Recommencer <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>shuffle-variant</title><path d="M17,3L22.25,7.5L17,12L22.25,16.5L17,21V18H14.26L11.44,15.18L13.56,13.06L15.5,15H17V12L17,9H15.5L6.5,18H2V15H5.26L14.26,6H17V3M2,6H6.5L9.32,8.82L7.2,10.94L5.26,9H2V6Z" /></svg></button>
+        <div id="big-card">
+
+        </div>
+        <button class="next-card" onclick="nextCard()"><p style="rotate: -90deg;">Suivante<br><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>page-next-outline</title><path d="M22,3H5A2,2 0 0,0 3,5V9H5V5H22V19H5V15H3V19A2,2 0 0,0 5,21H22A2,2 0 0,0 24,19V5A2,2 0 0,0 22,3M7,15V13H0V11H7V9L11,12L7,15M20,13H13V11H20V13M20,9H13V7H20V9M17,17H13V15H17V17Z" /></svg></p></button>
+    </main>
+</body>
+<script>
+    let indexOfCard = -1;
+    let cardsName = [];
+    let cardsOrdered = [];
+
+    function startGame(){
+        cardsName = ["moc-139-the-aether-flues.jpg","opca-19-the-dark-barony.jpg","moc-140-bloodhill-bastion.jpg","opca-20-edge-of-malacol.jpg","moc-142-gavony.jpg","opca-21-eloren-wilds.jpg","moc-143-glimmervoid-basin.jpg","opca-22-the-eon-fog.jpg","moc-144-the-great-forest.jpg","opca-23-feeding-grounds.jpg","moc-145-grove-of-the-dreampods.jpg","opca-24-fields-of-summer.jpg","moc-146-hedron-fields-of-agadeem.jpg","opca-25-the-fourth-sphere.jpg","moc-147-isle-of-vesuva.jpg","opca-26-furnace-layer.jpg","moc-148-jund.jpg","opca-28-glen-elendra.jpg","moc-149-kharasha-foothills.jpg","opca-30-goldmeadow.jpg","moc-150-krosa.jpg","opca-31-grand-ossuary.jpg","moc-152-orochi-colony.jpg","opca-33-grixis.jpg","moc-153-panopticon.jpg","opca-36-the-hippodrome.jpg","moc-156-selesnya-loft-gardens.jpg","opca-37-horizon-boughs.jpg","moc-157-sokenzan.jpg","opca-38-immersturm.jpg","moc-159-stensia.jpg","opca-40-izzet-steam-maze.jpg","moc-160-stronghold-furnace.jpg","opca-42-kessig.jpg","moc-161-truga-jungle.jpg","opca-44-kilnspire-district.jpg","moc-162-turri-island.jpg","opca-46-lair-of-the-ashen-idol.jpg","moc-163-undercity-reaches.jpg","opca-47-lethe-lake.jpg","moc-47-the-caldaia.jpg","opca-48-llanowar.jpg","moc-48-enigma-ridges.jpg","opca-49-the-maelstrom.jpg","moc-49-esper.jpg","opca-50-minamo.jpg","moc-50-the-fertile-lands-of-saulvinia.jpg","opca-51-mirrored-depths.jpg","moc-51-ghirapur.jpg","opca-52-mount-keralia.jpg","moc-52-the-golden-city-of-orazca.jpg","opca-53-murasa.jpg","moc-53-the-great-aerie.jpg","opca-54-naar-isle.jpg","moc-54-inys-haen.jpg","opca-55-naya.jpg","moc-55-ketria.jpg","opca-56-nephalia.jpg","moc-56-littiara.jpg","opca-57-norn-s-dominion.jpg","moc-57-megaflora-jungle.jpg","opca-58-onakke-catacomb.jpg","moc-58-naktamun.jpg","opca-60-orzhova.jpg","moc-59-new-argive.jpg","opca-61-otaria.jpg","moc-60-norn-s-seedcore.jpg","opca-63-pools-of-becoming.jpg","moc-61-nyx.jpg","opca-64-prahv.jpg","moc-62-paliano.jpg","opca-65-quicksilver-sea.jpg","moc-63-the-pit.jpg","opca-66-raven-s-run.jpg","moc-64-riptide-island.jpg","opca-67-sanctum-of-serra.jpg","moc-65-strixhaven.jpg","opca-68-sea-of-sand.jpg","moc-66-ten-wizards-mountain.jpg","opca-70-shiv.jpg","moc-67-towashi.jpg","opca-71-skybreen.jpg","moc-68-unyaro.jpg","opca-73-stairs-to-infinity.jpg","moc-69-valor-s-reach.jpg","opca-76-takenuma.jpg","moc-70-the-western-cloud.jpg","opca-77-talon-gates.jpg","moc-71-the-wilds.jpg","opca-78-tazeem.jpg","opca-11-agyrem.jpg","opca-79-tember-city.jpg","opca-12-akoum.jpg","opca-80-trail-of-the-mage-rings.jpg","opca-13-aretopolis.jpg","opca-84-velis-vel.jpg","opca-14-astral-arena.jpg","opca-85-windriddle-palaces.jpg","opca-15-bant.jpg","opca-86-the-zephyr-maze.jpg","opca-17-celestine-reef.jpg","opca-9-academy-at-tolaria-west.jpg"];
+        cardsOrdered = [];
+        while(cardsName.length > 0){
+            let randomIndex = Math.floor(Math.random() * cardsName.length);
+            cardsOrdered.push(cardsName[randomIndex]);
+            cardsName.splice(randomIndex,1);
+
+        }
+        nextCard();
+    }
+
+    function nextCard(){
+        indexOfCard ++;
+        if(indexOfCard >= cardsOrdered.length) indexOfCard = 0;
+        document.getElementById("big-card").innerHTML = '<img src="./planes/'+cardsOrdered[indexOfCard]+'">';
+    }
+
+    startGame();
+</script>
+</html>
