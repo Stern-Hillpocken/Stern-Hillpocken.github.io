@@ -282,7 +282,7 @@ ul{
 .slider ul{
   margin: inherit;
 }
-.slider img{
+.slider img, .slider video{
   height: auto;
   max-height: none;
   width: 100%;
