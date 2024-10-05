@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Transform deck list to pdf pictures</title>
+        <style type="text/css">
+          @font-face{
+            font-family: "FontFamilyChoosed";
+            src: url(./MPlantin.ttf) format("truetype");
+          }
+          body{
+            font-family: "FontFamilyChoosed", serif;
+          }
+          code{
+            background-color: black;
+            color: white;
+            display: inline-block;
+            font-size: 0.8em;
+          }
+          h1{
+            background-color: white;
+            border:  4px solid black;
+            border-radius: 24px;
+            font-size: 18px;
+            margin-bottom: 4px;
+            padding-left: 12px;
+            padding-right: 12px;
+          }
+          i{
+            font-size: 0.8em;
+          }
+          input[type="submit"]{
+            cursor: pointer;
+            border: 4px solid black;
+            border-radius: 8px;
+            float: right;
+          }
+          summary{
+            cursor: pointer;
+            font-weight: bold;
+          }
+          textarea{
+            width: 97%;
+          }
+          .card{
+            background-color: lightblue;
+            border: 12px solid black;
+            border-radius: 24px;
+            margin: auto;
+            max-width: 265px;
+            padding: 12px;
+          }
+          .cost{
+            background-color: lightgrey;
+            border-radius: 50%;
+            padding-left: 4px;
+            padding-right: 4px;
+          }
+          .info{
+            background-color: white;
+            border: 2px dotted black;
+          }
+          .not-summary{
+            font-size: 0.8em;
+          }
+          #inner{
+            background-color: white;
+            border: 2px solid black;
+            padding: 2px;
+          }
+        </style>
+        <script type="text/javascript">
+          function timePrecision(){
+            document.getElementById("time-precision").innerHTML = "Waiting time : 1 sec / card...";
+          }
+          function unfoldFrChoices(isTrue){
+            if(isTrue){
+              document.getElementById("unfold-fr-choices").innerHTML = `<p class="info">⚠️ Qualité parfois moindre.<br>⚠️ Choisissez un mode parmis les deux suivants, puis si des cartes ne sont pas affichées, essayez l'autre juste pour celles-ci.</p><dd><input type="radio" id="fr-old" name="lang-age" value="fr-old" checked><label for="fr-old">FR, anciennes cartes</label><br><input type="radio" id="fr-new" name="lang-age" value="fr-new"><label for="fr-new">FR, nouvelles cartes</label></dd><br> `;
+            }else{
+              document.getElementById("unfold-fr-choices").innerHTML = '';
+            }
+          }
+        </script>
+    </head>
+
+    <body>
+<div class="card">
+      <h1>Deck list to pdf</h1>
+      <div id="inner">
+      <span class="cost">1</span>: Choose one –<br>
+      <details><summary>Get list with Cockatrice</summary><span class="not-summary"><u>D</u>eck Editor > <u>L</u>oad deck... then, <u>D</u>eck Editor > Save deck to clipboard > Not Annoted (Ctrl+Shift+R)</span></details>
+      <details><summary>Get list with edhrec.com</summary><span class="not-summary">Go to https://edhrec.com/random (or name your commander), Deck > View Decklist then, Text View. Go to console (F12 or Ctrl+Maj+K), and run the code&nbsp;:<br><code>function grepDecklist(){
+        z = document.querySelectorAll("[class^=TextView_myMas]")[0].getElementsByTagName('a');
+    let diffLands = 0;
+    for(let i = 0; i < z.length; i++){
+      if(z[i].innerText === "Forest" || z[i].innerText === "Snow-Covered Forest" || z[i].innerText === "Island" || z[i].innerText === "Snow-Covered Island" || z[i].innerText === "Mountain" || z[i].innerText === "Snow-Covered Mountain" || z[i].innerText === "Plains" || z[i].innerText === "Snow-Covered Plains" || z[i].innerText === "Swamp" || z[i].innerText === "Snow-Covered Swamp"){
+        diffLands ++;
+      }
+    }
+    let nbCommander = 1;
+    let CommanderName = document.getElementsByClassName('breadcrumb-item')[3].textContent;
+    if(CommanderName.includes('//')){nbCommander++}
+    let nbLands = Math.floor((100-nbCommander-z.length)/diffLands+1);
+
+        let list = '';
+        for(let i = 0; i < z.length; i++){
+      if(z[i].innerText === "Forest" || z[i].innerText === "Snow-Covered Forest" || z[i].innerText === "Island" || z[i].innerText === "Snow-Covered Island" || z[i].innerText === "Mountain" || z[i].innerText === "Snow-Covered Mountain" || z[i].innerText === "Plains" || z[i].innerText === "Snow-Covered Plains" || z[i].innerText === "Swamp" || z[i].innerText === "Snow-Covered Swamp"){
+        list += nbLands+' ';
+      }else{
+      list += '1 ';
+    }
+            list += z[i].innerText+'\n';
+        }
+    if(nbCommander === 1){
+      list += '\n' + CommanderName;
+    }else{
+      list += '\n' + CommanderName.slice(0,CommanderName.indexOf(' // '))
+      list += '\n' + CommanderName.slice(CommanderName.indexOf(' // ')+4)
+    }
+    
+        console.log(list);
+    alert(list);
+    }; grepDecklist();</code></span></details><br>
+      <span class="cost">2</span>: Paste it below.
+      <form action="result/" method="POST">
+        <textarea id="text" name="text" rows="5" placeholder=
+"Exemple :
+1 Sol Ring
+26 Swamp
+1 Ayara, First of Locthwain"></textarea><br><br>
+      <span class="cost">3</span>: Choose one –<br>
+      <input type="radio" id="en" name="lang" value="en" onclick="unfoldFrChoices(false)" checked><label for="en">🇺🇸 English</label><br>
+      <input type="radio" id="fr" name="lang" value="fr" onclick="unfoldFrChoices(true)"><label for="fr">🇫🇷 Français</label>
+      <span id="unfold-fr-choices"></span>
+      <hr>
+      <i>Thanks to API : scryfall.com and magicthegathering.io</i><br>
+      <input type="submit" onclick="timePrecision()" value="Cast / Print"><br>
+      <span id="time-precision"></span>
+      </form>
+      </div>
+</div>
+    </body>
+</html>
